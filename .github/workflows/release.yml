@@ -41,6 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./hw_03-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: hw_03-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./HW03_Allocator-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: HW03_Allocator-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
+
