@@ -7,7 +7,7 @@ project(HW03_Allocator VERSION ${PROJECT_VESRION})
 
 #configure_file(version.h.in version.h)
 
-add_executable (HW03_Allocator "main.cpp" "main.h" "hw03_allocator.h" )
+add_executable (HW03_Allocator "main.cpp" "main.h" "hw03_allocator.h" "hw03_vector.h")
 
 set_target_properties(HW03_Allocator PROPERTIES
     CXX_STANDARD 20

@@ -12,7 +12,11 @@ struct hw03_allocator
 
     //T data[maxNum]; // If we only needed a fixed pool size, we could do it like this.
 
-    hw03_allocator() = default;
+    hw03_allocator()
+    {
+        allocatedNum = 0;
+    }
+
     ~hw03_allocator() = default;
  
     template <class U, elemsNumType maxNumU = maxNum> hw03_allocator(hw03_allocator <U, maxNum>& a) noexcept
@@ -49,14 +53,6 @@ struct hw03_allocator
         // if (n != maxSize)
         //    throw invalid_argument("In the current implementation, only all memory is freed."); 
 
-        // Delete ALL created elements.
-        T* ptr = mem_pool;
-        for (elemsNumType i = 0; i < allocatedNum; i++)
-        {
-            ptr->~T();
-            ptr++;          // ptr++->~T(); harder to read.
-        }
-
         std::free(static_cast<void*>(mem_pool));
         mem_pool = nullptr;
     }
@@ -70,13 +66,6 @@ struct hw03_allocator
     {
         return allocatedNum;
     }
-
-    //template <class U>
-    //struct rebind
-    //{
-    //    typedef hw03_allocator<U, maxNum> other;
-    //};
-
 
     template<typename U, elemsNumType maxNumU = maxNum>
     struct rebind
