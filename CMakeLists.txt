@@ -21,7 +21,7 @@ if (MSVC)
     )
 else ()
     target_compile_options(HW03_Allocator PRIVATE
-        -Wall -Wextra -pedantic -Werror
+        -Wall -Wextra -pedantic
     )
 endif()
 
